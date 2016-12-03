@@ -17,7 +17,7 @@ class Legislator < ApplicationRecord
   end
 
   def self.tweet_weather
-      WEATHER_KEY = 'befdfe87af5677e6b00d6b3f493ee649'
+      key = 'befdfe87af5677e6b00d6b3f493ee649'
       client = Twitter::REST::Client.new do |config|
           config.consumer_key        = "JMeqji62XmcYvZLLhVGOrhlGD"
           config.consumer_secret     = "0LIqhXIJ5zb4MQm3OGGkmdbLoJp63mIlIULaYANtqqowaTUF39"
@@ -25,7 +25,7 @@ class Legislator < ApplicationRecord
           config.access_token_secret = "ivU7vkT2T3C5QTmM5uGqEyiJfqJFrBHmLgztRA7zNUvAT"
       end
       leggies = Legislator.all
-      options = { units: "imperial", APPID: WEATHER_KEY }
+      options = { units: "imperial", APPID: key }
       conditions = OpenWeather.current("Juneau, AK", options)
       resp = conditions.parsed_response
       desc = resp['weather'][0]['description']
