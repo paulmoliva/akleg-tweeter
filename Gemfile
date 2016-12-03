@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'twitter'
 gem 'unirest'
 gem 'oauth'
+gem 'seed_dump'
 #gem 'chuck_norris'
 
 group :development, :test do

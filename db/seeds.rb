@@ -1,7 +1,39 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Legislator.create!([
+  {name: "Les Gara", handle: "@RepLesGara", chamber: "house", party: "D", caucus: "majority", total_recieved: nil},
+  {name: "Geran Tarr", handle: "@RepGeranTarr", chamber: "house", party: "D", caucus: "majority", total_recieved: nil},
+  {name: "Mike Dunleavy", handle: "@SenDunleavy", chamber: "senate", party: "R", caucus: "majority", total_recieved: nil},
+  {name: "Mike Chenault", handle: "@SpeakerChenault", chamber: "house", party: "R", caucus: "minority", total_recieved: nil},
+  {name: "Charisse Millet", handle: "@RepMillett", chamber: "house", party: "R", caucus: "minority", total_recieved: nil},
+  {name: "Matt Claman", handle: "@mattclaman", chamber: "house", party: "D", caucus: "majority", total_recieved: nil},
+  {name: "Harriet Drummond", handle: "@HarrietAK", chamber: "house", party: "D", caucus: "majority", total_recieved: nil},
+  {name: "David guttenberg", handle: "@DavidGuttenberg", chamber: "house", party: "D", caucus: "majority", total_recieved: nil},
+  {name: "Shelley Hughes", handle: "@AKShelleyHughes", chamber: "house", party: "D", caucus: "majority", total_recieved: nil},
+  {name: "Andy Jospehson", handle: "@RepAndyJ", chamber: "house", party: "D", caucus: "majority", total_recieved: nil},
+  {name: "Scott Kawasaki", handle: "@alaskascott", chamber: "house", party: "D", caucus: "majority", total_recieved: nil},
+  {name: "Sam Kito", handle: "@RepSamKitoIII", chamber: "house", party: "D", caucus: "majority", total_recieved: nil},
+  {name: "Jonathan Kreiss-Tomkins", handle: "@jkt_ak", chamber: "house", party: "D", caucus: "majority", total_recieved: nil},
+  {name: "Gabby LeDoux", handle: "@RepLedoux1", chamber: "house", party: "R", caucus: "majority", total_recieved: nil},
+  {name: "Dean Westlake", handle: "@Northern_Eskimo", chamber: "house", party: "D", caucus: "majority", total_recieved: nil},
+  {name: "Lance Pruitt", handle: "@Rep_LancePruitt", chamber: "house", party: "R", caucus: "minority", total_recieved: nil},
+  {name: "Lora Reinbold", handle: "@Reinbold4Alaska", chamber: "house", party: "R", caucus: "none", total_recieved: nil},
+  {name: "Paul Seaton", handle: "@RepPaulSeaton", chamber: "house", party: "R", caucus: "majority", total_recieved: nil},
+  {name: "Louise Stutes", handle: "@RepLouiseStutes", chamber: "house", party: "R", caucus: "majority", total_recieved: nil},
+  {name: "Dave Talerico", handle: "@TalericoDave", chamber: "house", party: "R", caucus: "minority", total_recieved: nil},
+  {name: "Cathy Tilton", handle: "@CathyTilton", chamber: "house", party: "R", caucus: "minority", total_recieved: nil},
+  {name: "Chris Tuck", handle: "@RepChrisTuck", chamber: "house", party: "D", caucus: "majority", total_recieved: nil},
+  {name: "Jason Grenn", handle: "@RepJasonGrenn", chamber: "house", party: "I", caucus: "majority", total_recieved: nil},
+  {name: "Tammie Wilson", handle: "@TammieKWilson", chamber: "house", party: "R", caucus: "minority", total_recieved: nil},
+  {name: "Kevin Meyer", handle: "@SenKevinMeyer", chamber: "senate", party: "R", caucus: "majority", total_recieved: nil},
+  {name: "John Coghill", handle: "@SenatorCoghill", chamber: "senate", party: "R", caucus: "majority", total_recieved: nil},
+  {name: "Berta Gardner", handle: "@SenBertaGardner", chamber: "senate", party: "D", caucus: "minority", total_recieved: nil},
+  {name: "Click Bishop", handle: "@CLICK_BISHOP", chamber: "senate", party: "R", caucus: "majority", total_recieved: nil},
+  {name: "Mia Costello", handle: "@MiaCostelloAK", chamber: "senate", party: "R", caucus: "majority", total_recieved: nil},
+  {name: "Cathy Giessel", handle: "@GiesselAkSenate", chamber: "senate", party: "R", caucus: "majority", total_recieved: nil},
+  {name: "Peter Micciche", handle: "@pmiccic", chamber: "senate", party: "R", caucus: "majority", total_recieved: nil},
+  {name: "Bert Stedman", handle: "@SenStedman", chamber: "senate", party: "R", caucus: "majority", total_recieved: nil},
+  {name: "Bill Wielechowski", handle: "@wielechowski", chamber: "senate", party: "D", caucus: "minority", total_recieved: nil}
+])
+User.create!([
+  {screen_name: "AlaskaAngry", token: "803148309124640768-vkpeC5TpT3HtbapZpVPTBv6PRja9X5U", secret: "ivU7vkT2T3C5QTmM5uGqEyiJfqJFrBHmLgztRA7zNUvAT"},
+  {screen_name: "AlaskaAngry", token: "803148309124640768-vkpeC5TpT3HtbapZpVPTBv6PRja9X5U", secret: "ivU7vkT2T3C5QTmM5uGqEyiJfqJFrBHmLgztRA7zNUvAT"}
+])
