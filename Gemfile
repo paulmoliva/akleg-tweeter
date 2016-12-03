@@ -33,6 +33,9 @@ gem 'twitter'
 gem 'unirest'
 gem 'oauth'
 gem 'seed_dump'
+gem 'open_weather'
+gem 'open-weather'
+gem 'whenever', :require => false
 #gem 'chuck_norris'
 
 group :development, :test do
