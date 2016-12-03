@@ -10,7 +10,7 @@ class LoginsController < ApplicationController
                 :scheme => :header
             }
         )
-        token = consumer.get_request_token(oauth_callback: 'http://localhost:3000/logins')
+        token = consumer.get_request_token(oauth_callback: 'https://akleg-tweeter.herokuapp.com//logins')
         # Exchange our oauth_token and oauth_token secret for the AccessToken instance.
         access_token = prepare_access_token(token.token, token.secret)
 
