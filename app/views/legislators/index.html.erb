@@ -1,0 +1,58 @@
+
+<table border="1">
+  <th>Name</th>
+  <th>Chamber</th>
+  <th>Party</th>
+  <th>Caucus</th>
+  <th>Handle</th>
+<% Legislator.all.each do |leg| %>
+  <tr>
+    <td><%= leg.name %></td>
+    <td><%= leg.chamber %></td>
+    <td><%= leg.party %></td>
+    <td><%= leg.caucus %></td>
+    <td><%= leg.handle %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<form class="new-leg" action="/legislators" method="post">
+  New Leggie
+  <label>
+    Name
+    <input type="text" name="legislator[name]" value="">
+  </label>
+  <label>
+    Twitter Handle
+    <input type="text" name="legislator[handle]" value="">
+  </label>
+  <label>
+    Chamber
+    <select class="" name="legislator[chamber]">
+      <option value="house">House</option>
+      <option value="senate">Senate</option>
+    </select>
+  </label>
+  <label>
+    Party
+    <select class="" name="legislator[party]">
+      <option value="R">Republican</option>
+      <option value="D">Democrat</option>
+      <option value="I">Independent</option>
+    </select>
+  </label>
+  <label>
+    Caucus
+    <select class="" name="legislator[caucus]">
+      <option value="minority">Minority</option>
+      <option value="majority">Majority</option>
+      <option value="none">None</option>
+    </select>
+  </label>
+  <input type="submit" name="submit" value="Submit">
+  <input
+  type="hidden"
+  name="authenticity_token"
+  value="<%= form_authenticity_token %>">
+</form>

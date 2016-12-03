@@ -1,0 +1,53 @@
+<p>Hi, world!</p>
+<form class="" action="/api/tweets" method="post">
+  <label>
+    Send To?
+    <select class="" name="tweets[filter]">
+      <option value="all_house">All House</option>
+      <option value="all_senate">All Senate</option>
+      <option value="house_minority">House Minority</option>
+    </select>
+</label><br>
+<label>
+  Message <br>
+  <textarea rows='7' cols='35' class="tweet-message" name="tweets[message]" value=""></textarea><br>
+  <p class="message-length">0</p>
+</label>
+  <input type="submit" class="submit" name="" value="tweet em">
+  <input
+  type="hidden"
+  name="authenticity_token"
+  value="<%= form_authenticity_token %>">
+</form>
+
+<button type="button" name="button" class="login">Unsubscribe</button>
+
+<script type="text/javascript">
+    $(()=>{
+        getMessageLength()
+
+        $('.tweet-message').on('keyup change', ()=>{
+            getMessageLength()
+        })
+
+        $('.login').click(()=>{
+            $.post('/logins')
+        })
+    })
+    function getMessageLength(){
+        let leng = $('.tweet-message').val().length
+        let messageLength = $('.message-length')
+        let submit = $('.submit')
+        const remaining = (119 - leng)
+        $('.message-length').text(119 - leng)
+        if (remaining < 0){
+            $('.message-length').css('color', 'red')
+            submit.prop("disabled",true)
+        } else {
+            messageLength.css('color', 'black')
+            submit.prop("disabled",false)
+        }
+    }
+
+
+</script>

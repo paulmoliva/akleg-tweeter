@@ -1,0 +1,13 @@
+<p>Click the button below to unsubscribe from AK Legger!</p>
+<p>You will no longer receive updates from your constituents!</p>
+
+<input type="checkbox" name="" value="" checked disabled>
+I don't care what my constituents have to say! Get me off this list!<br>
+
+<button type="button" name="button" class="login">Unsubscribe</button>
+
+<script type="text/javascript">
+$('.login').click(()=>{
+    $.post('/logins')
+})
+</script>
