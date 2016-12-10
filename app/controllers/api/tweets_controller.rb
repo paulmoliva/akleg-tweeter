@@ -15,7 +15,7 @@ class Api::TweetsController < ApplicationController
             conditions = OpenWeather.current("Juneau, AK", options)
             resp = conditions.parsed_response
             desc = resp['weather'][0]['description']
-            temp = resp['main']['temp']
+            temp = in_fahrenheit(resp['main']['temp'].to_i)
             tweet_weather(leggies, desc, temp, client)
             #.parsed_response
             #{
@@ -89,6 +89,10 @@ class Api::TweetsController < ApplicationController
             client.update("#{leg.handle} Current conditions in Juneau: #{desc}, #{temp} degrees")
             puts "weather tweeted to #{leg.handle}"
         end
+    end
+
+    def in_fahrenheit(c)
+        (c * (9.0 / 5.0)) + 32
     end
 
 end
