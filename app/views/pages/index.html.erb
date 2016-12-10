@@ -1,41 +1,50 @@
-<p>Hi, world!</p>
-<form class="" action="/api/tweets" method="post">
-  <label>
-    Send To?
-    <select class="" name="tweets[filter]">
-      <option value="all_house">All House</option>
-      <option value="all_senate">All Senate</option>
-      <option value="house_minority">House Minority</option>
-    </select>
-</label><br>
-<label>
-  Message <br>
-  <textarea rows='7' cols='35' class="tweet-message" name="tweets[message]" value=""></textarea><br>
-  <p class="message-length">0</p>
-</label>
-  <input type="submit" class="submit" name="" value="tweet em">
-  <input
-  type="hidden"
-  name="authenticity_token"
-  value="<%= form_authenticity_token %>">
-</form>
-<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
 
-<input type="checkbox" name="" value="" checked disabled>
-I'm a legislator and I don't care what my constituents have to say! Get me off this list!<br>
-<button type="button" name="button" class="login">Unsubscribe</button>
+        </div>
+        <div class="col-md-8">
+            <h1>Welcome to AK Legger!</h1>
+            <h2>Where you can tweet the entire legislature</h2>
+            <form class="" action="/api/tweets" method="post">
+                <label>
+                    Send To?
+                    <select class="" name="tweets[filter]">
+                        <option value="all_house">All House</option>
+                        <option value="all_senate">All Senate</option>
+                        <option value="house_minority">House Minority</option>
+                    </select>
+                </label><br>
+                <label>
+                    Message <br>
+                    <textarea rows='7' cols='35' class="tweet-message" name="tweets[message]" value=""></textarea><br>
+                    <p class="message-length">0</p>
+                </label>
+                <br>
+                <input type="submit" class="submit" name="" value="Tweet em">
+                <input
+                type="hidden"
+                name="authenticity_token"
+                value="<%= form_authenticity_token %>">
+                <form class="" action="/api/tweets" method="post" style="display:inline">
+                    <input type="hidden" name="tweets[weather]" value="true">
+                    <input
+                    type="hidden"
+                    name="authenticity_token"
+                    value="<%= form_authenticity_token %>">
+                    <input type="submit" class="weather" name="submit" value="Tweet 'em the weather">
+                </form>
+            </form>
+            <br>
+            <input type="checkbox" name="" value="" checked disabled>
+            I'm a legislator and I don't care what my constituents have to say! Get me off this list!<br>
+            <button type="button" name="button" class="login">Unsubscribe</button>
+        </div>
+        <div class="col-md-2">
 
-<br>
-<br>
-<form class="" action="/api/tweets" method="post">
-    <input type="hidden" name="tweets[weather]" value="true">
-    <input
-    type="hidden"
-    name="authenticity_token"
-    value="<%= form_authenticity_token %>">
-    <input type="submit" class="weather" name="submit" value="weather">
-</form>
-
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
     $(()=>{
         getMessageLength()

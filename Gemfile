@@ -36,6 +36,8 @@ gem 'seed_dump'
 gem 'open_weather'
 gem 'open-weather'
 gem 'whenever', :require => false
+gem 'bootstrap-sass', '~> 3.3.6'
+
 #gem 'chuck_norris'
 
 group :development, :test do
