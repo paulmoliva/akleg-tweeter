@@ -7,12 +7,19 @@ class Legislator < ApplicationRecord
     Legislator.where(chamber: 'house', caucus:'minority')
   end
 
+  def self.senate_minority
+    Legislator.where(chamber: 'senate', caucus:'minority')
+  end
+
+  def self.house_majority
+    Legislator.where(chamber: 'senate', caucus:'majority')
+  end
+
   def self.house
     Legislator.where(chamber: 'house')
   end
 
   def self.senate
-      puts 'all senate'
     Legislator.where(chamber: 'senate')
   end
 

@@ -66,6 +66,14 @@ class Api::TweetsController < ApplicationController
             leggies = Legislator.senate
         elsif tweets_params['filter'] == 'house_minority'
             leggies = Legislator.house_minority
+        elsif tweets_params['filter'] == 'house_majority'
+            leggies = Legislator.house_majority
+        elsif tweets_params['filter'] == 'senate_minority'
+            leggies = Legislator.senate_minority
+        elsif tweets_params['filter'] == 'senate_majority'
+            leggies = Legislator.senate_majority
+        elsif tweets_params['filter'] == 'all'
+            leggies = Legislator.all
         end
         make_tweets(leggies, client) if tweets_params['message']
         redirect_to root_path
