@@ -1,9 +1,25 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
 
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
+            <nav class="custom-nav">
+                <% if signed_in? %>
+                    Hello, <%=current_user.screen_name%>
+                    <a href="/logout">(LOG OUT)</a>
+                <% else %>
+                    <button class="login btn btn-primary">Login</button>
+                <% end %>
+                <% if false %>
+                <form class="" action="/api/tweets" method="post" style="display:inline">
+                    <input type="hidden" name="tweets[weather]" id='weather-field' value="true">
+                    <input
+                    type="hidden"
+                    name="authenticity_token"
+                    value="<%= form_authenticity_token %>">
+                    <input type="submit" class="weather btn btn-info" name="submit" value="Tweet 'em the weather">
+                </form>
+                <% end %>
+            </nav>
             <h1>Welcome to AK Legger!</h1>
             <h2>Where you can tweet the entire Alaska State Legislature</h2>
             <% if signed_in? %>
@@ -40,24 +56,7 @@
             I'm a legislator and I don't care what my constituents have to say! Get me off this list!<br>
             <button type="button" name="button" class="login btn btn-danger">Unsubscribe</button>
         </div>
-        <div class="col-md-3">
-            <% if signed_in? %>
-                <p>Hello, <%=current_user.screen_name%>
-                <a href="/logout">(LOG OUT)</a></p>
-            <% else %>
-                <button class="login btn btn-primary">Login</button>
-            <% end %>
-            <% if false %>
-            <form class="" action="/api/tweets" method="post" style="display:inline">
-                <input type="hidden" name="tweets[weather]" id='weather-field' value="true">
-                <input
-                type="hidden"
-                name="authenticity_token"
-                value="<%= form_authenticity_token %>">
-                <input type="submit" class="weather btn btn-info" name="submit" value="Tweet 'em the weather">
-            </form>
-            <% end %>
-        </div>
+
     </div>
 </div>
 <script type="text/javascript">
