@@ -5,18 +5,18 @@ class Api::TweetsController < ApplicationController
         client = Twitter::REST::Client.new do |config|
             config.consumer_key        = "tHGf9CADEui4mHUP45RBu8aGw"
             config.consumer_secret     = "j7ooPMPCc7zgyYda7zCOSvFXGKqzrlU0dWUXhDUydR1wqxBMwL"
-            config.access_token        = "803148309124640768-vkpeC5TpT3HtbapZpVPTBv6PRja9X5U"
-            config.access_token_secret = "ivU7vkT2T3C5QTmM5uGqEyiJfqJFrBHmLgztRA7zNUvAT"
+            config.access_token        = current_user.token
+            config.access_token_secret = current_user.secret
         end
-        if tweets_params['weather']
-            byebug
-            leggies = Legislator.all
-            options = { units: "imperial", APPID: WEATHER_KEY }
-            conditions = OpenWeather.current("Juneau, AK", options)
-            resp = conditions.parsed_response
-            desc = resp['weather'][0]['description']
-            temp = in_fahrenheit(resp['main']['temp'].to_i)
-            tweet_weather(leggies, desc, temp, client)
+        # if tweets_params['weather']
+        #     byebug
+        #     leggies = Legislator.all
+        #     options = { units: "imperial", APPID: WEATHER_KEY }
+        #     conditions = OpenWeather.current("Juneau, AK", options)
+        #     resp = conditions.parsed_response
+        #     desc = resp['weather'][0]['description']
+        #     temp = in_fahrenheit(resp['main']['temp'].to_i)
+        #     tweet_weather(leggies, desc, temp, client)
             #.parsed_response
             #{
             #     "coord"=>{"lon"=>-134.42, "lat"=>58.3},
@@ -57,9 +57,9 @@ class Api::TweetsController < ApplicationController
             #     "name"=>"Juneau",
             #     "cod"=>200
             # }
-            redirect_to root_path
-            return
-        end
+        #     redirect_to root_path
+        #     return
+        # end
         if tweets_params['filter'] == 'all_house'
             leggies = Legislator.house
         elsif tweets_params['filter'] == 'all_senate'

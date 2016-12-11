@@ -5,7 +5,8 @@
         </div>
         <div class="col-md-6">
             <h1>Welcome to AK Legger!</h1>
-            <h2>Where you can tweet the entire legislature</h2>
+            <h2>Where you can tweet the entire Alaska State Legislature</h2>
+            <% if signed_in? %>
             <form class="" action="/api/tweets" method="post">
                 <label>
                     Send To?
@@ -31,6 +32,9 @@
                 name="authenticity_token"
                 value="<%= form_authenticity_token %>">
             </form>
+            <% else %>
+            <h2>Please <a class="login" style='font-size: 24px;'>Login with Twitter</a> to Tweet!</h2>
+            <% end %>
             <br>
             <input type="checkbox" name="" value="" checked disabled>
             I'm a legislator and I don't care what my constituents have to say! Get me off this list!<br>
@@ -73,17 +77,19 @@
         })
     })
     function getMessageLength(){
-        let leng = $('.tweet-message').val().length
-        let messageLength = $('.message-length')
-        let submit = $('.submit')
-        const remaining = (119 - leng)
-        $('.message-length').text(119 - leng)
-        if (remaining < 0){
-            $('.message-length').css('color', 'red')
-            submit.prop("disabled",true)
-        } else {
-            messageLength.css('color', 'black')
-            submit.prop("disabled",false)
+        if ($('.tweet-message').length){
+            let leng = $('.tweet-message').val().length
+            let messageLength = $('.message-length')
+            let submit = $('.submit')
+            const remaining = (119 - leng)
+            $('.message-length').text(119 - leng)
+            if (remaining < 0){
+                $('.message-length').css('color', 'red')
+                submit.prop("disabled",true)
+            } else {
+                messageLength.css('color', 'black')
+                submit.prop("disabled",false)
+            }
         }
     }
 
