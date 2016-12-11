@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
 
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
             <h1>Welcome to AK Legger!</h1>
             <h2>Where you can tweet the entire legislature</h2>
             <form class="" action="/api/tweets" method="post">
@@ -21,37 +21,48 @@
                 </label><br>
                 <label>
                     Message <br>
-                    <textarea rows='7' cols='35' class="tweet-message" name="tweets[message]" value=""></textarea><br>
+                    <textarea rows='7' cols='50' class="tweet-message" name="tweets[message]" value=""></textarea><br>
                     <p class="message-length">0</p>
                 </label>
                 <br>
-                <input type="submit" class="submit" name="" value="Tweet em">
+                <input type="submit" class="submit btn btn-info" name="" value="Tweet em">
                 <input
                 type="hidden"
                 name="authenticity_token"
                 value="<%= form_authenticity_token %>">
-                <form class="" action="/api/tweets" method="post" style="display:inline">
-                    <input type="hidden" name="tweets[weather]" value="true">
-                    <input
-                    type="hidden"
-                    name="authenticity_token"
-                    value="<%= form_authenticity_token %>">
-                    <input type="submit" class="weather" name="submit" value="Tweet 'em the weather">
-                </form>
             </form>
             <br>
             <input type="checkbox" name="" value="" checked disabled>
             I'm a legislator and I don't care what my constituents have to say! Get me off this list!<br>
-            <button type="button" name="button" class="login">Unsubscribe</button>
+            <button type="button" name="button" class="login btn btn-danger">Unsubscribe</button>
         </div>
-        <div class="col-md-2">
-
+        <div class="col-md-3">
+            <% if signed_in? %>
+                <p>Hello, <%=current_user.screen_name%>
+                <a href="/logout">(LOG OUT)</a></p>
+            <% else %>
+                <button class="login btn btn-primary">Login</button>
+            <% end %>
+            <% if false %>
+            <form class="" action="/api/tweets" method="post" style="display:inline">
+                <input type="hidden" name="tweets[weather]" id='weather-field' value="true">
+                <input
+                type="hidden"
+                name="authenticity_token"
+                value="<%= form_authenticity_token %>">
+                <input type="submit" class="weather btn btn-info" name="submit" value="Tweet 'em the weather">
+            </form>
+            <% end %>
         </div>
     </div>
 </div>
 <script type="text/javascript">
     $(()=>{
         getMessageLength()
+
+        $('.submit').click(e=>{
+            $('#weather-field').val('')
+        })
 
         $('.tweet-message').on('keyup change', ()=>{
             getMessageLength()

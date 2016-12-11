@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :legislators, only: [:index, :create]
   resources :logins
   get '/unsubscribe' => 'pages#show'
+  get '/logout' => 'logins#delete'
 end

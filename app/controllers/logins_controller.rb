@@ -1,5 +1,5 @@
-CONSUMER_KEY = "JMeqji62XmcYvZLLhVGOrhlGD"
-CONSUMER_SECRET = "0LIqhXIJ5zb4MQm3OGGkmdbLoJp63mIlIULaYANtqqowaTUF39"
+CONSUMER_KEY = "tHGf9CADEui4mHUP45RBu8aGw"
+CONSUMER_SECRET = "j7ooPMPCc7zgyYda7zCOSvFXGKqzrlU0dWUXhDUydR1wqxBMwL"
 class LoginsController < ApplicationController
     def create
         consumer = OAuth::Consumer.new(
@@ -41,15 +41,36 @@ class LoginsController < ApplicationController
         screen_name = access_token.params[:screen_name]
         token = access_token.token
         secret = access_token.secret
-        @user = User.new
-        @user.screen_name = screen_name
-        @user.token = token
-        @user.secret = secret
-        @user.save
-
+        @user = User.where(screen_name: screen_name).first
+        if @user
+            sign_in(@user)
+        else
+            @user = User.new
+            @user.screen_name = screen_name
+            @user.token = token
+            @user.secret = secret
+            @user.save
+            sign_in(@user)
+        end
         redirect_to root_path
     end
 
+    def delete
+        current_user.session_token = nil
+        current_user.save
+        redirect_to root_path
+    end
+
+    private
+    def sign_in(user)
+      user.session_token = SecureRandom.urlsafe_base64(16)
+      user.save
+      session[:session_token] = user.session_token
+    end
+
+    def sign_out
+      session[:session_token] = nil
+    end
 
 end
 # Exchange your oauth_token and oauth_token_secret for an AccessToken instance.

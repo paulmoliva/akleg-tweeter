@@ -3,8 +3,8 @@ WEATHER_KEY = 'befdfe87af5677e6b00d6b3f493ee649'
 class Api::TweetsController < ApplicationController
     def create
         client = Twitter::REST::Client.new do |config|
-            config.consumer_key        = "JMeqji62XmcYvZLLhVGOrhlGD"
-            config.consumer_secret     = "0LIqhXIJ5zb4MQm3OGGkmdbLoJp63mIlIULaYANtqqowaTUF39"
+            config.consumer_key        = "tHGf9CADEui4mHUP45RBu8aGw"
+            config.consumer_secret     = "j7ooPMPCc7zgyYda7zCOSvFXGKqzrlU0dWUXhDUydR1wqxBMwL"
             config.access_token        = "803148309124640768-vkpeC5TpT3HtbapZpVPTBv6PRja9X5U"
             config.access_token_secret = "ivU7vkT2T3C5QTmM5uGqEyiJfqJFrBHmLgztRA7zNUvAT"
         end
@@ -74,6 +74,9 @@ class Api::TweetsController < ApplicationController
             leggies = Legislator.senate_majority
         elsif tweets_params['filter'] == 'all'
             leggies = Legislator.all
+        end
+        if tweets_params['message']
+            tweets_params['messages'] = tweets_params['message'].gsub('@', '')
         end
         make_tweets(leggies, client) if tweets_params['message']
         redirect_to root_path
