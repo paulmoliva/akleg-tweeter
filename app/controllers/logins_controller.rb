@@ -1,5 +1,5 @@
-CONSUMER_KEY = "tHGf9CADEui4mHUP45RBu8aGw"
-CONSUMER_SECRET = "j7ooPMPCc7zgyYda7zCOSvFXGKqzrlU0dWUXhDUydR1wqxBMwL"
+CONSUMER_KEY = "ZU67a7iOA29euOUtdgmNykEc0"
+CONSUMER_SECRET = "ZON03RiZPHBgvFXFF3wmjkPeYcfF0gxXXBL4qYpgvmi9ycXIA5"
 class LoginsController < ApplicationController
     def create
         consumer = OAuth::Consumer.new(
@@ -10,7 +10,8 @@ class LoginsController < ApplicationController
                 :scheme => :header
             }
         )
-        token = consumer.get_request_token(oauth_callback: 'https://akleg-tweeter.herokuapp.com/logins')
+        # token = consumer.get_request_token(oauth_callback: 'https://akleg-tweeter.herokuapp.com/logins')
+        token = consumer.get_request_token(oauth_callback: 'http://localhost:3000/logins')
         # Exchange our oauth_token and oauth_token secret for the AccessToken instance.
         access_token = prepare_access_token(token.token, token.secret)
 

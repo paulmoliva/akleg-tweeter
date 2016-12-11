@@ -3,8 +3,8 @@ WEATHER_KEY = 'befdfe87af5677e6b00d6b3f493ee649'
 class Api::TweetsController < ApplicationController
     def create
         client = Twitter::REST::Client.new do |config|
-            config.consumer_key        = "tHGf9CADEui4mHUP45RBu8aGw"
-            config.consumer_secret     = "j7ooPMPCc7zgyYda7zCOSvFXGKqzrlU0dWUXhDUydR1wqxBMwL"
+            config.consumer_key        = "ZU67a7iOA29euOUtdgmNykEc0"
+            config.consumer_secret     = "ZON03RiZPHBgvFXFF3wmjkPeYcfF0gxXXBL4qYpgvmi9ycXIA5"
             config.access_token        = current_user.token
             config.access_token_secret = current_user.secret
         end
