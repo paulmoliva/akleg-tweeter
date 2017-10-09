@@ -1,5 +1,5 @@
-CONSUMER_KEY = "ZU67a7iOA29euOUtdgmNykEc0"
-CONSUMER_SECRET = "ZON03RiZPHBgvFXFF3wmjkPeYcfF0gxXXBL4qYpgvmi9ycXIA5"
+CONSUMER_KEY = "fUEm2nro0bkgWUV77RqNRQCf8"
+CONSUMER_SECRET = "LB5ZgrHEox5qzGxZqHhh4THmxMWRIyiYaVrAqxEntZjYJqHJSL"
 class LoginsController < ApplicationController
     def create
         consumer = OAuth::Consumer.new(
@@ -57,7 +57,7 @@ class LoginsController < ApplicationController
     end
 
     def delete
-        current_user.session_token = nil
+        current_user.reset_session_token
         current_user.save
         redirect_to root_path
     end
