@@ -26,8 +26,8 @@ class Legislator < ApplicationRecord
   def self.tweet_weather
       key = 'befdfe87af5677e6b00d6b3f493ee649'
       client = Twitter::REST::Client.new do |config|
-          config.consumer_key        = "ZU67a7iOA29euOUtdgmNykEc0"
-          config.consumer_secret     = "ZON03RiZPHBgvFXFF3wmjkPeYcfF0gxXXBL4qYpgvmi9ycXIA5"
+          config.consumer_key        = "fUEm2nro0bkgWUV77RqNRQCf8"
+          config.consumer_secret     = "LB5ZgrHEox5qzGxZqHhh4THmxMWRIyiYaVrAqxEntZjYJqHJSL"
           config.access_token        = "803148309124640768-vkpeC5TpT3HtbapZpVPTBv6PRja9X5U"
           config.access_token_secret = "ivU7vkT2T3C5QTmM5uGqEyiJfqJFrBHmLgztRA7zNUvAT"
       end
