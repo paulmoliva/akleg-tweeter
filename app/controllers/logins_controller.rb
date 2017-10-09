@@ -1,5 +1,5 @@
-CONSUMER_KEY = "fUEm2nro0bkgWUV77RqNRQCf8"
-CONSUMER_SECRET = "LB5ZgrHEox5qzGxZqHhh4THmxMWRIyiYaVrAqxEntZjYJqHJSL"
+CONSUMER_KEY = "xa4veCnrAgC8Y9ZWelhD6cokX"
+CONSUMER_SECRET = "eiBsITcqd8AdzgqvoXS6a9oJtAsv7IMnbKPdEKfFfG9VoFUUxJ"
 class LoginsController < ApplicationController
     def create
         consumer = OAuth::Consumer.new(
